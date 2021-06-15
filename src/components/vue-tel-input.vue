@@ -489,7 +489,9 @@ export default {
       this.emitInput(this.phone);
     },
     emitInput(value) {
-      this.$emit('input', value, this.phoneObject, this.$refs.input);
+      if (value !== this.value) {
+        this.$emit('input', value, this.phoneObject, this.$refs.input);
+      }
     },
     onBlur() {
       this.$emit('blur');
